@@ -67,7 +67,7 @@ public class SecurityConfig {
             .addFilterBefore(apiKeyAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
             .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/auth/login", "/companies").permitAll()
+                .requestMatchers("/auth/login", "/companies","/actuator/**").permitAll()
                 .requestMatchers("/client/**").hasRole("CLIENT")
                 .anyRequest().authenticated()
             );

@@ -28,7 +28,6 @@ public class AuthController {
     }
     @PostMapping("/login")
     public String authenticate(@Valid @RequestBody LoginRequestDTO requestDTO) throws UserDoesNotExistException {
-
         String username = requestDTO.getEmail();
         String password = requestDTO.getPassword();
         log.info("Login request username:{}",username);
